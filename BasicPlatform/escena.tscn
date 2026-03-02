@@ -1,11 +1,6 @@
 [gd_scene format=3 uid="uid://cqpob3sy8a6vr"]
 
-[ext_resource type="Script" uid="uid://bmugvv28en04t" path="res://CharacterBody2d.cs" id="1_865ah"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_4flbx"]
-specular_color = Color(0.29814824, 0.00097017153, 0.50993544, 1)
+[ext_resource type="PackedScene" uid="uid://doblwfdsbm41w" path="res://player.tscn" id="1_865ah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_865ah"]
 size = Vector2(170, 15)
@@ -14,20 +9,12 @@ size = Vector2(170, 15)
 
 [node name="Escena" type="Node2D" unique_id=1678228810]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=401875678]
-position = Vector2(469, 193)
-script = ExtResource("1_865ah")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1677036360]
-shape = SubResource("RectangleShape2D_onrkg")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=173352143]
-modulate = Color(0.59488404, 0.00026789575, 0.5973876, 1)
-scale = Vector2(20, 20)
-texture = SubResource("CanvasTexture_4flbx")
+[node name="Player" parent="." unique_id=552764215 instance=ExtResource("1_865ah")]
+position = Vector2(320.00003, 139.00002)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1966253372]
-position = Vector2(469, 237)
+position = Vector2(498, 225)
+scale = Vector2(3, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1188695754]
 shape = SubResource("RectangleShape2D_865ah")
