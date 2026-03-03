@@ -1,0 +1,14 @@
+[gd_scene format=4 uid="uid://cqpob3sy8a6vr"]
+
+[ext_resource type="PackedScene" uid="uid://doblwfdsbm41w" path="res://Reusable/player.tscn" id="1_3g3sh"]
+[ext_resource type="PackedScene" uid="uid://dqqll5h411ddg" path="res://Reusable/suelo.tscn" id="2_rt8cs"]
+
+[node name="Escena" type="Node2D" unique_id=1678228810]
+
+[node name="Player" parent="." unique_id=552764215 instance=ExtResource("1_3g3sh")]
+position = Vector2(320.00003, 139.00002)
+
+[node name="Suelo" parent="." unique_id=1154221933 instance=ExtResource("2_rt8cs")]
+position = Vector2(78, 0)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAADAAQAAAAIAAEAAAAEAAQAAAAIAAAAAAAFAAQAAAAIAAAAAAAGAAQAAAAIAAAAAAAHAAQAAAAIAAAAAAAIAAQAAAAIAAAAAAAJAAQAAAAIAAAAAAAKAAQAAAAJAAAAAAALAAQAAAALAAAAAAAMAAQAAAALAAAAAAANAAQAAAAMAAAAAAA=")

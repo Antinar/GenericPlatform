@@ -13,7 +13,6 @@ config_version=5
 config/name="GenericPlatform"
 run/main_scene="uid://cqpob3sy8a6vr"
 config/features=PackedStringArray("4.6", "C#", "Mobile")
-config/icon="res://icon.svg"
 
 [dotnet]
 
