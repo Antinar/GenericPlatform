@@ -22,6 +22,26 @@ region = Rect2(224, 32, 32, 32)
 atlas = ExtResource("2_i3pqv")
 region = Rect2(384, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
+atlas = ExtResource("2_i3pqv")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
+atlas = ExtResource("2_i3pqv")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("2_i3pqv")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+atlas = ExtResource("2_i3pqv")
+region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
+atlas = ExtResource("2_i3pqv")
+region = Rect2(256, 32, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ssasw"]
 atlas = ExtResource("2_i3pqv")
 region = Rect2(0, 32, 32, 32)
@@ -62,6 +82,26 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 1.1,
+"texture": SubResource("AtlasTexture_onrkg")
+}, {
+"duration": 1.6,
+"texture": SubResource("AtlasTexture_i3pqv")
+}, {
+"duration": 1.6,
+"texture": SubResource("AtlasTexture_hqtel")
+}, {
+"duration": 1.6,
+"texture": SubResource("AtlasTexture_sweqy")
+}, {
+"duration": 1.1,
+"texture": SubResource("AtlasTexture_2hs0m")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ssasw")
 }, {
@@ -92,5 +132,10 @@ shape = SubResource("RectangleShape2D_onrkg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1621386152]
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_jqhht")
-animation = &"idle"
-frame_progress = 0.36696473
+animation = &"jump"
+frame_progress = 0.19034985
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1389130920]
+position = Vector2(27.206371, -5)
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true

@@ -10,7 +10,7 @@ public partial class Player : CharacterBody2D
 	{
 		Vector2 velocity = Velocity;
 
-		// Add the gravity.
+		// Lógica de gravedad
 		if (!IsOnFloor())
 		{
 			velocity += GetGravity() * (float)delta;
@@ -24,24 +24,31 @@ public partial class Player : CharacterBody2D
 
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
-		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+		Vector2 direction = Input.GetVector("ui_left", "ui_right", "", "");
 		if (direction != Vector2.Zero)
 		{
 			velocity.X = direction.X * Speed;
-			_animatedSprite2D.Play("moving");
-			if(direction.X != 0){
-				_animatedSprite2D.FlipH = direction.X < 0;
-			}
 		}
 		else
 		{
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-			_animatedSprite2D.Play("idle");
 		}
 		Velocity = velocity;
 		MoveAndSlide();
 		
-
+	//Logica de animación
+	if (!IsOnFloor())
+		{
+			_animatedSprite2D.Play("jump");
+		}else if (direction != Vector2.Zero){
+			_animatedSprite2D.Play("moving");
+		}else{
+			_animatedSprite2D.Play("idle");
+		}
+		
+		if(direction.X != 0){
+			_animatedSprite2D.FlipH = direction.X < 0;
+		}
 		
 		
 	}
