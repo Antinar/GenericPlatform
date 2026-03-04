@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://doblwfdsbm41w"]
+[gd_scene format=3 uid="uid://fd4yqk52e3kq"]
 
 [ext_resource type="Script" uid="uid://bmugvv28en04t" path="res://Scripts/Player.cs" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://cfa63w38qs7vy" path="res://Assets/Player/Idle.png" id="2_kmf3q"]
@@ -222,7 +222,7 @@ position = Vector2(0.66357005, -5.6666665)
 scale = Vector2(-1, -1)
 sprite_frames = SubResource("SpriteFrames_jqhht")
 animation = &"moving"
-frame_progress = 0.7476922
+frame_progress = 0.9239096
 speed_scale = 2.0
 flip_v = true
 
