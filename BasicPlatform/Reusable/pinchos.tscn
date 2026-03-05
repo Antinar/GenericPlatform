@@ -127,21 +127,21 @@ z_index = 1
 position = Vector2(-17, 0)
 sprite_frames = SubResource("SpriteFrames_e2lt3")
 animation = &"Layer1"
-frame_progress = 0.2921851
+frame_progress = 0.56215835
 speed_scale = 2.0
 
 [node name="AnimLayer1_2" type="AnimatedSprite2D" parent="CapaDelantera" unique_id=1165144365]
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_e2lt3")
 animation = &"Layer1"
-frame_progress = 0.8362985
+frame_progress = 0.10627309
 speed_scale = 2.0
 
 [node name="AnimLayer1_3" type="AnimatedSprite2D" parent="CapaDelantera" unique_id=1785111754]
 position = Vector2(17, 0)
 sprite_frames = SubResource("SpriteFrames_e2lt3")
 animation = &"Layer1"
-frame_progress = 0.7124199
+frame_progress = 0.9823939
 speed_scale = 2.0
 
 [node name="CapaTrasera" type="Node2D" parent="." unique_id=1193623552]
@@ -151,23 +151,27 @@ z_index = -1
 position = Vector2(-12, 0)
 sprite_frames = SubResource("SpriteFrames_e2lt3")
 animation = &"Layer2"
-frame_progress = 0.41827613
+frame_progress = 0.6882495
 speed_scale = 2.0
 
 [node name="AnimLayer2_2" type="AnimatedSprite2D" parent="CapaTrasera" unique_id=1688395248]
 position = Vector2(20, 0)
 sprite_frames = SubResource("SpriteFrames_e2lt3")
 animation = &"Layer2"
-frame_progress = 0.8162981
+frame_progress = 0.08627371
 speed_scale = 2.0
 
 [node name="AnimLayer2_3" type="AnimatedSprite2D" parent="CapaTrasera" unique_id=237893303]
 position = Vector2(4, 0)
 sprite_frames = SubResource("SpriteFrames_e2lt3")
 animation = &"Layer1"
-frame_progress = 0.46580136
+frame_progress = 0.73577553
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1141303128]
 position = Vector2(2, 6.5)
 shape = SubResource("RectangleShape2D_a46a5")
+
+[node name="DamageTimer" type="Timer" parent="." unique_id=1202562852]
+wait_time = 0.5
+autostart = true

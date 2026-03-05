@@ -123,9 +123,7 @@ public partial class Player : CharacterBody2D, IDamageble
 	private async void Invulnerability()
 	{
 		_canTakeDamage = false;
-
 		Modulate = new Color(1,1,1,0.5f);
-
 		await ToSignal(GetTree().CreateTimer(DamageCooldown), SceneTreeTimer.SignalName.Timeout);;
 		_canTakeDamage = true;
         Modulate = new Color(1, 1, 1, 1);
