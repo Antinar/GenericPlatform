@@ -29,6 +29,7 @@ texture = ExtResource("1_yhccm")
 9:1/0 = 0
 10:1/0 = 0
 12:1/0 = 0
+12:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -5.3010373, -8, -5.2159023)
 13:1/0 = 0
 14:1/0 = 0
 15:1/0 = 0
