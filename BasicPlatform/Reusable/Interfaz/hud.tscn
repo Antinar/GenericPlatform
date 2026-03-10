@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c1781ilrppj21"]
+
+[ext_resource type="PackedScene" uid="uid://d4ihj62723ejb" path="res://Reusable/Interfaz/Jugador/heart.tscn" id="1_k21at"]
+
+[node name="HUD" type="CanvasLayer" unique_id=2114846635]
+
+[node name="Heart_UI" parent="." unique_id=1975516082 instance=ExtResource("1_k21at")]

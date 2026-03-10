@@ -14,15 +14,19 @@ public partial class Player : CharacterBody2D, IDamageble
 	//Variables de movimiento
 	private int _jumpsleft;
 	//Variables de vida del jugador
+	[Signal] public delegate void HealthChangedEventHandler(int Health);
 	[Export] public int PlayerMaxHealth = 3;
 	[Export] public float DamageCooldown = 1.0f;
 	private int _playerHealth;
 	private bool _canTakeDamage = true;
+	private bool _isHurting = false;
 
 	public override void _Ready()
 	{
 		_playerHealth = PlayerMaxHealth;
 		_animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+
+		EmitSignal(SignalName.HealthChanged,_playerHealth);
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -69,6 +73,7 @@ public partial class Player : CharacterBody2D, IDamageble
 
 	private void AnimacionesMovimiento(float direction)
 	{
+		if (_isHurting) return;
 		if (!IsOnFloor())
 		{
 			_animatedSprite2D.Play("jump");
@@ -92,6 +97,7 @@ public partial class Player : CharacterBody2D, IDamageble
 
 	private void AnimacionesVida(int opción)
 	{
+		
 		//El jugador a sido dañado
 		if (opción == 1)
 		{
@@ -110,6 +116,8 @@ public partial class Player : CharacterBody2D, IDamageble
 		_playerHealth -= damage;
 		_playerHealth = Mathf.Clamp(_playerHealth, 0, PlayerMaxHealth);
 
+		EmitSignal(SignalName.HealthChanged,_playerHealth);
+
 		if (_playerHealth <= 0)
 		{
 			Die();
@@ -123,14 +131,17 @@ public partial class Player : CharacterBody2D, IDamageble
 	private async void Invulnerability()
 	{
 		_canTakeDamage = false;
-		Modulate = new Color(1,1,1,0.5f);
-		await ToSignal(GetTree().CreateTimer(DamageCooldown), SceneTreeTimer.SignalName.Timeout);;
-		_canTakeDamage = true;
-        Modulate = new Color(1, 1, 1, 1);
+		_isHurting = true;
 		AnimacionesVida(1);
+		Modulate = new Color(1, 1, 1, 0.5f);
+		await ToSignal(GetTree().CreateTimer(DamageCooldown), SceneTreeTimer.SignalName.Timeout); ;
+		_canTakeDamage = true;
+		_isHurting = false;
+		Modulate = new Color(1, 1, 1, 1);
+
 	}
 	private void Die()
-	{	
+	{
 		AnimacionesVida(2);
 		//PlaceHolder (reinicia la escena)
 		GetTree().ReloadCurrentScene();
