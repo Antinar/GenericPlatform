@@ -144,6 +144,6 @@ public partial class Player : CharacterBody2D, IDamageble
 	{
 		AnimacionesVida(2);
 		//PlaceHolder (reinicia la escena)
-		GetTree().ReloadCurrentScene();
+		GetTree().CallDeferred(SceneTree.MethodName.ReloadCurrentScene);
 	}
 }

@@ -1,6 +1,31 @@
 [gd_scene format=3 uid="uid://d4ihj62723ejb"]
 
+[ext_resource type="Texture2D" uid="uid://bli3tfhm2mmk2" path="res://Assets/Player/UIPlayer/Player Empty hearts.png" id="1_a0dgx"]
 [ext_resource type="Texture2D" uid="uid://bjace5ricwxec" path="res://Assets/Player/UIPlayer/Player hearts.png" id="1_s858b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frgjk"]
+atlas = ExtResource("1_a0dgx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cfnu"]
+atlas = ExtResource("1_a0dgx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1dcd"]
+atlas = ExtResource("1_a0dgx")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w08fs"]
+atlas = ExtResource("1_a0dgx")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_624ai"]
+atlas = ExtResource("1_a0dgx")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vkd5"]
+atlas = ExtResource("1_a0dgx")
+region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a0dgx"]
 atlas = ExtResource("1_s858b")
@@ -98,6 +123,29 @@ region = Rect2(64, 128, 32, 32)
 animations = [{
 "frames": [{
 "duration": 2.0,
+"texture": SubResource("AtlasTexture_frgjk")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_7cfnu")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_h1dcd")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_w08fs")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_624ai")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_1vkd5")
+}],
+"loop": true,
+"name": &"damageHeart",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_a0dgx")
 }, {
 "duration": 1.0,
@@ -182,6 +230,6 @@ grow_vertical = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1539684712]
 sprite_frames = SubResource("SpriteFrames_frgjk")
-animation = &"idleHeart"
-frame_progress = 0.9060017
+animation = &"damageHeart"
+frame_progress = 0.80601156
 speed_scale = 3.0

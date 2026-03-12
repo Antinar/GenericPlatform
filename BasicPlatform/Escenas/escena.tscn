@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dqqll5h411ddg" path="res://Reusable/suelo.tscn" id="2_rt8cs"]
 [ext_resource type="Texture2D" uid="uid://ebdc8foode3g" path="res://Assets/Backgrounds/6.png" id="3_p40sl"]
 [ext_resource type="PackedScene" uid="uid://bbr1ddnk0wgxo" path="res://Reusable/pinchos.tscn" id="4_rpgi1"]
+[ext_resource type="PackedScene" uid="uid://hx8jsvl55vwn" path="res://Reusable/Interfaz/hud.tscn" id="5_sgnyj"]
 
 [node name="escena de pruebas" type="Node2D" unique_id=1678228810]
 
@@ -34,3 +35,7 @@ scale = Vector2(2, 2)
 z_index = -1
 position = Vector2(809, 162)
 scale = Vector2(2, 2)
+
+[node name="HUD" parent="." unique_id=227310699 instance=ExtResource("5_sgnyj")]
+
+[connection signal="HealthChanged" from="Player" to="Player" method="OnPlayerHealthChange"]

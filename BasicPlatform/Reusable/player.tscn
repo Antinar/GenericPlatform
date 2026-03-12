@@ -365,3 +365,5 @@ flip_v = true
 position = Vector2(0, -0.33333334)
 zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
+
+[connection signal="HealthChanged" from="." to="." method="OnPlayerHealthChanged"]
