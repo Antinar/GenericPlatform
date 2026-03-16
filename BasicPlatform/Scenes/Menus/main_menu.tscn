@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://85vehkyvagso"]
+
+[ext_resource type="Theme" uid="uid://csvb4cig7cn6" path="res://Themes/MainTheme.tres" id="1_38aua"]
+[ext_resource type="Texture2D" uid="uid://bubk8jxqbfcsf" path="res://Assets/Menus/PrincipalHud.png" id="2_pha2q"]
+[ext_resource type="Shader" uid="uid://bm7lfv652vqfs" path="res://Assets/Menus/main_menu.gdshader" id="3_penys"]
+
+[sub_resource type="Theme" id="Theme_pha2q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aur2u"]
+shader = ExtResource("3_penys")
+shader_parameter/opacidad_filtro = 0.400000019
+
+[node name="MainMenu" type="Control" unique_id=582194402]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_38aua")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1314732996]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_pha2q")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1488982250]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -125.5
+offset_right = 320.0
+offset_bottom = 125.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_38aua")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1102871473]
+layout_mode = 2
+theme = SubResource("Theme_pha2q")
+theme_override_constants/separation = 17
+alignment = 1
+
+[node name="NewGameButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=750059090]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme = ExtResource("1_38aua")
+text = "New Game"
+
+[node name="ContinueButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=69299355]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme = ExtResource("1_38aua")
+text = "Continue"
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=288419746]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme = ExtResource("1_38aua")
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1418164178]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme = ExtResource("1_38aua")
+text = "Exit"
+
+[node name="CRTFilter" type="ColorRect" parent="." unique_id=507215516]
+z_index = -1
+material = SubResource("ShaderMaterial_aur2u")
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
