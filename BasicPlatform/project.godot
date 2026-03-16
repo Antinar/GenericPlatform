@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GenericPlatform"
-run/main_scene="uid://cqpob3sy8a6vr"
+run/main_scene="uid://85vehkyvagso"
 config/features=PackedStringArray("4.6", "C#", "Mobile")
 
 [display]

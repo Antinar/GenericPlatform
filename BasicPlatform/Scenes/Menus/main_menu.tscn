@@ -1,16 +1,18 @@
 [gd_scene format=3 uid="uid://85vehkyvagso"]
 
 [ext_resource type="Theme" uid="uid://csvb4cig7cn6" path="res://Themes/MainTheme.tres" id="1_38aua"]
+[ext_resource type="Script" uid="uid://ck6dgb1dqgimn" path="res://Scripts/HUD/MainMenu.cs" id="2_5wi6m"]
 [ext_resource type="Texture2D" uid="uid://bubk8jxqbfcsf" path="res://Assets/Menus/PrincipalHud.png" id="2_pha2q"]
+[ext_resource type="Script" uid="uid://bogtjg3xwkqpf" path="res://Scripts/HUD/ExitButton.cs" id="3_aur2u"]
 [ext_resource type="Shader" uid="uid://bm7lfv652vqfs" path="res://Assets/Menus/main_menu.gdshader" id="3_penys"]
-
-[sub_resource type="Theme" id="Theme_pha2q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aur2u"]
 shader = ExtResource("3_penys")
-shader_parameter/opacidad_filtro = 0.400000019
+shader_parameter/opacidad_filtro = 0.50000002375
 
-[node name="MainMenu" type="Control" unique_id=582194402]
+[sub_resource type="Theme" id="Theme_pha2q"]
+
+[node name="MainMenu" type="Control" unique_id=582194402 node_paths=PackedStringArray("_mainButtons", "_settingsPanel", "_BackButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,12 +20,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_38aua")
+script = ExtResource("2_5wi6m")
+_mainButtons = NodePath("MarginContainer")
+_settingsPanel = NodePath("SettingPanel")
+_BackButton = NodePath("BackButton")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1314732996]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("2_pha2q")
+
+[node name="CRTFilter" type="ColorRect" parent="." unique_id=507215516]
+z_index = -1
+material = SubResource("ShaderMaterial_aur2u")
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1488982250]
 layout_mode = 1
@@ -69,10 +82,64 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme = ExtResource("1_38aua")
 text = "Exit"
+script = ExtResource("3_aur2u")
 
-[node name="CRTFilter" type="ColorRect" parent="." unique_id=507215516]
+[node name="SettingPanel" type="Panel" parent="." unique_id=783671621]
+visible = false
 z_index = -1
-material = SubResource("ShaderMaterial_aur2u")
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = 29.0
+offset_top = 26.999998
+offset_right = 1131.7485
+offset_bottom = 628.3047
+scale = Vector2(0.9938803, 0.99616706)
+theme = ExtResource("1_38aua")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingPanel" unique_id=1378284277]
+layout_mode = 0
+offset_left = 222.3608
+offset_top = 98.377075
+offset_right = 872.3385
+offset_bottom = 512.9661
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingPanel/VBoxContainer" unique_id=1034748898]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingPanel/VBoxContainer/HBoxContainer" unique_id=1641497641]
+layout_mode = 2
+text = "Resolution"
+
+[node name="ResolutionOptions" type="OptionButton" parent="SettingPanel/VBoxContainer/HBoxContainer" unique_id=1930951993]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "1280x720"
+popup/item_0/id = 0
+popup/item_1/text = "1600x900"
+popup/item_1/id = 1
+popup/item_2/text = "1920x1080"
+popup/item_2/id = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="SettingPanel/VBoxContainer" unique_id=1240991238]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingPanel/VBoxContainer/HBoxContainer2" unique_id=1962015755]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="FullscreenToggle" type="CheckButton" parent="SettingPanel/VBoxContainer/HBoxContainer2" unique_id=1181797318]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="." unique_id=255512116]
+visible = false
+layout_mode = 0
+offset_left = 824.0
+offset_top = 494.0
+offset_right = 1024.0
+offset_bottom = 544.0
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="." method="OnSettingsButtonPressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ExitButton" to="MarginContainer/VBoxContainer/ExitButton" method="OnQuitButtonPressed"]
+[connection signal="item_selected" from="SettingPanel/VBoxContainer/HBoxContainer/ResolutionOptions" to="." method="OnResolutionSelected"]
+[connection signal="toggled" from="SettingPanel/VBoxContainer/HBoxContainer2/FullscreenToggle" to="." method="OnFullscreenToggled"]
+[connection signal="pressed" from="BackButton" to="." method="OnBackButtonPressed"]
